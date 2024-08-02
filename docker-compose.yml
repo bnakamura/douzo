@@ -31,13 +31,15 @@ services:
     volumes:
       # HTTPS用の証明書とキーをホストOSから、ゲストOSに連結する
       - /etc/letsencrypt:/etc/letsencrypt
-      - html_proxy:/usr/share/nginx/html
+#      - html_proxy:/usr/share/nginx/html
+      - html_proxy:/usr/share/nginx/html/
 
   certbot:
     image: certbot/certbot:v1.26.0
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
-      - html_proxy:/usr/share/nginx/html
+#      - html_proxy:/usr/share/nginx/html
+      - html_proxy:/usr/share/nginx/html/
     depends_on:
       - nginx_proxy
     # 新規作成(サブドメも含めて取得する)
