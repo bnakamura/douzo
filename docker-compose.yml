@@ -54,7 +54,7 @@ services:
     #entrypoint: ["certbot", "renew"]
     # 普段
     #command: ["--version"]
-    entrypoint: ["--version"]
+    entrypoint: ["certbot", "--version"]
 
 volumes:
   html:
