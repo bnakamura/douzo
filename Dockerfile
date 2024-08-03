@@ -1,6 +1,6 @@
 FROM certbot/certbot:v2.11.0
 
-RUN mkdir -p /user/share/nginx/html
+RUN mkdir -p /usr/share/nginx/html
 RUN mkdir -p /usr/share/nginx/api
 RUN mkdir -p /usr/share/nginx/auth
 
