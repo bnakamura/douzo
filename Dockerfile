@@ -1,4 +1,4 @@
-FROM certbot/certbot:v2.11.0
+FROM certbot/certbot:v1.21.0
 
 RUN mkdir -p /usr/share/nginx/html
 RUN mkdir -p /usr/share/nginx/api
