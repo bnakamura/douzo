@@ -34,7 +34,8 @@ services:
       - html_proxy:/usr/share/nginx/html
 
   certbot:
-    image: certbot/certbot:v1.26.0
+#    image: certbot/certbot:v1.26.0
+    image: certbot/certbot:v2.11.0
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - html_proxy:/usr/share/nginx/html
