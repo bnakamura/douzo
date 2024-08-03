@@ -24,8 +24,8 @@ services:
     networks:
       - nginx_net
     depends_on:
-#      - nginx
-       - nginx_koz
+      nginx:
+        condition: service_started
     ports:
       - "80:80"
       - "443:443"
@@ -41,8 +41,8 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
       - html_proxy:/usr/share/nginx/html
     depends_on:
-#      - nginx_proxy
-       - nginx_proxy_koz
+      nginx_proxy:
+        condition: service_started
     # 新規作成(サブドメも含めて取得する)
     # entrypoint: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
     command: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
