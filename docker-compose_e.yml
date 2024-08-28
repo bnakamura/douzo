@@ -24,7 +24,8 @@ services:
     networks:
       - nginx_net
     depends_on:
-      - nginx
+      nginx:
+        condition: service_started
     ports:
       - "80:80"
       - "443:443"
@@ -34,13 +35,18 @@ services:
       - html_proxy:/usr/share/nginx/html
 
   certbot:
-    image: certbot/certbot:v1.26.0
+#    image: certbot/certbot:v1.26.0
+    image: certbot/certbot:v2.11.0
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - html_proxy:/usr/share/nginx/html
     depends_on:
-      - nginx_proxy
+      nginx_proxy:
+        condition: service_started
     # 新規作成(サブドメも含めて取得する)
+    # entrypoint: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
+    command: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
+    #更新テスト
     #entrypoint: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
     # 更新の時はこちら
     # 参考
@@ -49,8 +55,8 @@ services:
     # https://server-recipe.com/1577/
     #entrypoint: ["certbot", "renew"]
     # 普段
-    command: ["--version"]
- 
+    #command: ["--version"]
+    entrypoint: ["certbot", "--version"]
 
 volumes:
   html:
