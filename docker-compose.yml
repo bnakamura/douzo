@@ -50,7 +50,7 @@ services:
     # https://server-recipe.com/1577/
     #entrypoint: ["certbot", "renew"]
     # 普段
-    command: ["--version"]
+    # command: ["--version"]
  
 
 volumes:
