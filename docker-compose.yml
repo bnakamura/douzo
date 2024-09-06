@@ -40,8 +40,7 @@ services:
       - html_proxy:/usr/share/nginx/html
     depends_on:
       - nginx_proxy
-    # 新規作成(サブドメも含めて取得する)
-    entrypoint: ["certbot", "certonly", "-d $API_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
+    # 新規作成(サブドメも含めて取得する) 1ドメインごとにして実行する
 #    entrypoint: ["certbot", "certonly", "-d $DOMAIN", "-d $API_DOMAIN",  "-d $KEY_DOMAIN", "-m $MAIL", "--agree-tos","--webroot", "-w","/usr/share/nginx/html/"]
     # 2024/09/01テスト
     # 更新の時はこちら
@@ -49,9 +48,9 @@ services:
     # https://hogetech.info/network/web/lets-encrypt
     # https://qiita.com/HeRo/items/f9eb8d8a08d4d5b63ee9
     # https://server-recipe.com/1577/
-    #entrypoint: ["certbot", "renew"]
+    # entrypoint: ["certbot", "renew"]
     # 普段
-    # command: ["--version"]
+    command: ["--version"]
  
 
 volumes:
