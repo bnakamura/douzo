@@ -32,10 +32,10 @@ ENV CLIENT_ID=${CLIENT_ID}
 ENV CLIENT_SECRET=${CLIENT_SECRET}
 ENV JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
 
-RUN mkdir -p /root/udemy-flask-sample/web
+RUN mkdir -p /root/douzo/web
 
 # change dir
-WORKDIR /root/udemy-flask-sample/web
+WORKDIR /root/douzo/web
 
 # install module
 COPY ./ ./
