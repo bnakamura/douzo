@@ -1,0 +1,81 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div id='kinyu'>
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% endwith %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>諸々雑多</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active text-uppercase" id="okozukai-tab" data-toggle="tab" href="#okozukai" role="tab" aria-controls="okozukai" aria-selected="true">formの繰り返し</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" id="mani-tab" data-toggle="tab" href="#manisetting" role="tab" aria-controls="mani" aria-selected="false">radio_check</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" id="hoge-tab" data-toggle="tab" href="#hoge" role="tab" aria-controls="mani" aria-selected="false">input_form</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="container">
+                                <div class="tab-content" id="myTabContent">
+                                    {% include 'mislenious/money_tab/money_form.html' %}
+                                    {% include 'mislenious/money_tab/input_form.html' %}
+                                    {% include 'mislenious/money_tab/radio_check.html' %}
+
+                                    {% if checkboxform.errors %}
+                                    {{ checkboxform.errors }}
+                                    {% endif %}
+
+                                    {% if basicform.errors %}
+                                    {{ basicform.errors }}
+                                    {% endif %}
+
+                                    {% if moneyform.errors %}
+                                    {{ moneyform.errors }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  {% endblock content %}
+
+  <!-- Specific Page JS goes HERE  -->
+  {% block javascripts %}{% endblock javascripts %}

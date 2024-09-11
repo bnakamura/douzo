@@ -1,0 +1,62 @@
+<div class="tab-pane fade show" id="manisetting" role="tabpanel" aria-labelledby="mani-tab">
+    <form role="form" method="POST" action="{{ url_for('mislenious.save_radio_checkbox', page='basic2') }}">
+
+        {{ checkboxform.hidden_tag() }}
+        {{ checkboxform.csrf_token }}
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card-body">
+                        <h5>学歴は？</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-daterange card-body">
+                        {% for gakureki in checkboxform.gakureki_radio %}
+                        <div class="custom-control custom-radio custom-control-inline">
+                            {{ gakureki }}
+                            {{ gakureki.label }}
+                        </div>
+                        {% endfor %}    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card-body">
+                        <h5>あなたの状況を教えてください(該当するものにチェック)。</h5>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        {% for onestep in checkboxform.onestep_checkbox %}
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                {{ checkboxform[onestep](class="custom-control-input")}}
+                                {{ checkboxform[onestep].label(class="custom-control-label") }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="roots" class="container" align="right">
+            <div class="row">
+                <div class="col justify-content-end">
+                    <div class="card-body">
+                        <h5>
+                            <button type="submit" class="btn btn-success" title="保存" data-toggle="tooltip" data-html="true" data-placement="left">
+                                保存
+                            </button>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {% if checkboxform.errors %}
+    {{ checkboxform.errors }}
+    {% endif %}
+</div>

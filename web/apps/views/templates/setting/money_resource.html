@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div id='kinyu'>
+                            <!--flashメッセージ表示-->
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% endwith %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <!--jinja テンプレート-->
+                                                <form role="form" method="POST" action="{{ url_for('setting.money') }}">
+
+                                                    <!--CSRF 対策-->
+                                                    {{ form.hidden_tag() }}
+                                                    {{ form.csrf_token }}
+                                            
+                                                    <h5>あなたの総資産</h5>
+                                                        {{ form.soushisan }}円
+                                                    <div id="roots" class="container" align="right">
+                                                        <div class="row">
+                                                            <div class="col justify-content-end">
+                                                                <div class="card-body">
+                                                                    <h5>
+                                                                        {{ form.submit(class="btn btn-success")}}
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--フォームの送信エラーが出た時に状況を表示してくれる-->
+                                                    {% if form.errors %}
+                                                        {{ form.errors }}
+                                                    {% endif %}
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  {% endblock content %}
+
+  <!-- Specific Page JS goes HERE  -->
+  {% block javascripts %}{% endblock javascripts %}

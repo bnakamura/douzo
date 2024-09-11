@@ -18,46 +18,6 @@ app = Flask(
     template_folder = "views/templates"
 )
 
-db = SQLAlchemy()
-mail = Mail()
-csrf = CSRFProtect()
-
-class Config:
-
-    # SQLAlchemy
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{password}@{host}/{dbname}?charset=utf8'.format(**{
-        'user': os.getenv('MYSQL_USER', ''),
-        'password': os.getenv('MYSQL_PASSWORD', ''),
-        'host': 'mysql_koz',
-        'dbname': 'hoge'
-    })
-
-
-    # Assets Management
-    ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets') 
-
-    # セッションを使う際の秘密キー
-    SECRET_KEY = os.getenv('SECRET_KEY', '') 
-
-    # CSRFトークンの設定
-    WTF_CSRF_SECRET_KEY = os.getenv('CSRF_SECRET', '')
-    
-    # session 
-    PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)
-
-    WTF_CSRF_ENABLED = True
-
-    # jsonをそのままダンプする(ASCIIにしない)
-    JSON_AS_ASCII = False
-
-    # Gmail Setting
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS =  True
-    MAIL_USERNAME = os.getenv('MAIL_USERNAME', '')
-    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '')
-    MAIL_DEFAULT_SENDER = 'FLASK-SAMPLE'
-
 def create_app():
 
     # blue printでルートを設定する
