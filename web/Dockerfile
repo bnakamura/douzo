@@ -8,7 +8,10 @@ ENV TZ="Asia/Tokyo" \
     LC_ALL="C.UTF-8"
 
 # upgrade pip
-RUN apt-get update && apt-get install -y \
+# RUN apt-get update && apt-get install -y \
+#     && pip install --upgrade pip
+
+RUN apt update && apt install -y \
     && pip install --upgrade pip
 
 RUN apt install -y logrotate
