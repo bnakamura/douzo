@@ -17,7 +17,7 @@ setting = Blueprint('setting',
 def logout():
     
     # logoutのエンドポイントを呼び出す
-    return redirect("https://udemy-flask-sample.top/oauth2/sign_out?rd=https%3A%2F%2Fauth.udemy-flask-sample.top%3A8443%2Frealms%2Fhogepeke%2Fprotocol%2Fopenid-connect%2Flogout/")
+    return redirect("https://douzo.top/oauth2/sign_out?rd=https%3A%2F%2Fauth.douzo.top%3A8443%2Frealms%2Fhogepeke%2Fprotocol%2Fopenid-connect%2Flogout/")
 
 @setting.route('check_jwt', methods=["GET", "POST"])
 def check_jwt():
@@ -40,7 +40,7 @@ def check_jwt():
         public_key,
         algorithms=["RS256"],
         audience="flasks",
-        issuer="https://auth.udemy-flask-sample.top:8443/realms/hogepeke")["sub"]
+        issuer="https://auth.douzo.top:8443/realms/hogepeke")["sub"]
 
     return sub
 

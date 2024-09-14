@@ -50,6 +50,23 @@ services:
     volumes:
       - socket:/tmp
 
+  #　データ保存Mysql
+  mysql:
+    build:
+      context: mysql
+      dockerfile: Dockerfile
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
+    networks:
+      - app_net
+    environment:
+      MYSQL_DATABASE: ${DB}
+      MYSQL_ROOT_PASSWORD: ${ROOT}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    container_name: mysql_koz
 
   certbot:
     image: certbot/certbot:v1.26.0
