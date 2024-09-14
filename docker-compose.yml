@@ -49,6 +49,7 @@ services:
       JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY}
     volumes:
       - socket:/tmp
+      - ./migrations/:/root/udemy-flask-sample/web/migrations
 
   #　データ保存Mysql
   mysql:
