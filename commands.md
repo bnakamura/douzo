@@ -1,3 +1,6 @@
+#server login
+ssh -i douzo/SSHKEY/SSHKEY01.pem root@160.251.139.45
+
 #git
 alias gall='git add -A && git commit -m '''commit''' && git push origin main'
 
