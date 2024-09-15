@@ -1,3 +1,6 @@
+#git sample
+https://github.com/yk-st/udemy-flask-sample/blob/main/commands.md
+
 #server login
 ssh -i douzo/SSHKEY/SSHKEY01.pem root@160.251.139.45
 
@@ -29,3 +32,6 @@ show tables;
 
 #テーブル構造の表示
 show create table money;
+
+#テーブルデータの照会
+select * from hoge.money;
