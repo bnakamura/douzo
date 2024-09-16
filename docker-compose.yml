@@ -162,8 +162,8 @@ services:
       OAUTH2_PROXY_PROVIDER: "keycloak-oidc"
       # googleがデフォルト githubの時は以下みたいにする
       # OAUTH2_PROXY_PROVIDER: "github"
-      # keycloakのFQDN(masterレルムは繋ぐことができない)
-      OAUTH2_PROXY_OIDC_ISSUER_URL: https://douzo.top:8443/realms/hogepeke
+      # keycloakのFQDN(masterレルムは繋ぐことができない) 修正
+      OAUTH2_PROXY_OIDC_ISSUER_URL: https://auth.douzo.top:8443/realms/hogepeke
       OAUTH2_PROXY_CLIENT_ID: $CLIENT_ID
       OAUTH2_PROXY_CLIENT_SECRET: $CLIENT_SECRET
       # SLOする際に必要。リダイレクト先(rdパラメター)にで有効なパス(今回はlandingページに戻す)
