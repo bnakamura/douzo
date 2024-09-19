@@ -20,6 +20,7 @@ docker-compoe ps
 
 #mysql login -u の後にユーザ名、-pの後に空白無しでパスワード
 mysql -u hogehoge -phogehoge
+mysql -u root -phogehoge
 
 #DataBase 表示
 show databases;
@@ -48,3 +49,13 @@ https://douzo.top/oauth2/sign_out?rd=https%3A%2F%2Fauth.douzo.top%3A8443%2Frealm
 
 # JWTデコードするためのキー
 export JWT_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhWcxlmluBu8ZMcafoc2bogOoEXGtsFMax362C3Vkt5F5JCLOJkvUD24vd+1kLpNeI+0pGBuNj7RLK4po3MwdtUc15EJNzJhDFkzDKW6PCj00YWRVkmnLQuCuqP8fvcYNkxXA0J1MdtXkGlujIycwV0v6bI/xpV3iBHBmHHsbD7iUOWZtlt34JFJvDA39coMGZzUEYpqvZZi2jS+wCQIO44plpezwfZSQ97F6lzr4wJ8fFiJK9/w1d68uSe5H/XOTk1r7CskYk7boJeTlJYSVa4BQMBPcXUQHLcHCNffU8swySsEswcWdwjwD6+O+IYHohaNNNDvwBKfDZBAvyDHuUwIDAQAB
+
+# logの参照
+# アプリのコンテナにログインして
+cat uwsgi.log
+
+# ファイウの容量確認
+# アプリのコンテナにログインして
+du -h
+dh -h
+
