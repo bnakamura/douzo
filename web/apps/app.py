@@ -57,7 +57,7 @@ class Config:
 #    MAIL_USERNAME = os.getenv('MAIL_USERNAME', '')
     MAIL_USERNAME = 'binnnakamura@gmail.com'
 #    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '')
-    MAIL_PASSWORD = 'nakamurabin'
+    MAIL_PASSWORD = 'ebayumonjsmmpght'
     MAIL_DEFAULT_SENDER = 'DOUZO'
 
 def create_app():
