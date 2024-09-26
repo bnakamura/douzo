@@ -54,9 +54,10 @@ class Config:
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS =  True
-    MAIL_USERNAME = os.getenv('binnnakamura@gmail.com', '')
-#    MAIL_PASSWORD = os.getenv('nakamuabin', '')
-    MAIL_PASSWORD = os.getenv('ebayumonjsmmpght', '')  #アプリパスワード
+#    MAIL_USERNAME = os.getenv('MAIL_USERNAME', '')
+    MAIL_USERNAME = 'binnnakamura@gmail.com'
+#    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '')
+    MAIL_PASSWORD = 'nakamurabin'
     MAIL_DEFAULT_SENDER = 'DOUZO'
 
 def create_app():
