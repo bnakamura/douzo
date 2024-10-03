@@ -51,6 +51,23 @@ services:
       - socket:/tmp
       - ./migrations/:/root/douzo/web/migrations
 
+  app_api:
+    build: ./api
+    networks:
+      - app_net
+      - keycloak_net
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY}
+      CLIENT_SECRET: ${CLIENT_SECRET}
+    volumes:
+      - socket_api:/tmp_api
+
+
+
   #　データ保存Mysql
   mysql:
     build:

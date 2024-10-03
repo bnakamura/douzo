@@ -16,7 +16,7 @@ docker exec -it douzo_app_1 /bin/bash
 docker exec -it mysql_koz /bin/bash
 
 #check container
-docker-compoe ps
+docker-compose ps
 
 #mysql login -u の後にユーザ名、-pの後に空白無しでパスワード
 mysql -u hogehoge -phogehoge
@@ -59,3 +59,41 @@ cat uwsgi.log
 du -h
 dh -h
 
+# 返却したいJSON
+{
+    "resource": {
+        "id": "aaa",
+        "address": {
+            "zip": "peke",
+            "postal": "maruo"
+        },
+        "addresses": [
+            {
+                "id": 1,
+                "zip": "peke",
+                "postal": "maruo"
+            },
+            {
+                "id": 2,
+                "zip": "pekeo",
+                "postal": "maruo2"
+            }
+        ]
+    }
+}
+
+# トークン取得系のコマンド
+# client_id,client_secretはkeycloakで取得したもの secret.cmd参照
+curl -k -X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=client_credentials&scope=openid" \
+-d "client_id=flasks" \
+-d "client_secret=FTGlrDWUCvLdmnq44X9yMAewe7jBj2y7" \
+"https://auth.douzo.top:8443/realms/hogepeke/protocol/openid-connect/token"
+
+# トークンが有効か確認する
+curl -k
+-X POST
+-u "flasks:G6xqdoC33HytUhEi0vjvUgKMSGZ2QXYL"
+-d "token=$TOKEN"
+"https://auth.douzo.top:8443/realms/hogepeke/protocol/openid-connect/token/introspect"
