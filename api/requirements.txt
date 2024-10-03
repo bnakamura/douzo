@@ -1,10 +1,11 @@
-Flask==2.2.3            # バージョンを修正
+Flask==2.2.2
+#Flask==2.3.3
 greenlet==1.1.0
 Flask-Migrate==3.1.0
-Flask-SQLAlchemy==3.0.3  # バージョンを修正
+Flask-SQLAlchemy==3.0.3 #バージョンを修正
 
 #Werkzeugのバージョンを明示的に指定する
-Werkzeug==2.2.3
+Werkzeug==2.3.7
 
 cryptography==37.0.4
 
