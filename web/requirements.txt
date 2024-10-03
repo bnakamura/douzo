@@ -1,4 +1,4 @@
-Flask==2.1.2
+Flask==3.0.1
 greenlet==1.1.0
 Flask-Migrate==3.1.0
 Flask-SQLAlchemy==2.5.1
@@ -11,7 +11,7 @@ Flask-SQLAlchemy==2.5.1
 #Flask-SQLAlchemy==3.0.3 #バージョンを修正
 
 #Werkzeugのバージョンを明示的に指定する
-Werkzeug==2.3.7
+Werkzeug==3.0.1
 
 #RS256などをエンコードするためのコードもこっそり入っている。
 cryptography==37.0.4
