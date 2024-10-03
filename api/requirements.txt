@@ -4,7 +4,7 @@ Flask-Migrate==3.1.0
 Flask-SQLAlchemy==2.5.1
 
 #Werkzeugのバージョンを明示的に指定する
-Werkzeug==2.3.7
+#Werkzeug==2.3.7
 
 cryptography==37.0.4
 
