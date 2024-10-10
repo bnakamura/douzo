@@ -3,7 +3,9 @@ name: CI
 on:
   push:
     branches:
-      - main
+      # 開発中はmainではなくsampleにしておく
+      - sample      
+      #- main
 
 jobs:
   build:
