@@ -15,6 +15,9 @@ docker exec -it douzo_app_1 /bin/bash
 #loging to mysql container
 docker exec -it mysql_koz /bin/bash
 
+#loging to api container
+docker exec -it douzo_app_api_1 /bin/bash
+
 #check container
 docker-compose ps
 
