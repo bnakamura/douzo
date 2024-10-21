@@ -3,23 +3,23 @@
 
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
-  <loc>https://udemy-flask-sample.top/</loc>
+  <loc>https://douzo.top/</loc>
   <priority>1.0</priority>
 </url>
 <url>
-  <loc>https://udemy-flask-sample.top/realms/hogepeke/login-actions/reset-credentials?client_id=flaskstab_id=avZAR_sDvTY</loc>
+  <loc>https://douzo.top/realms/hogepeke/login-actions/reset-credentials?client_id=flaskstab_id=fJ-opbzytTs</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://udemy-flask-sample.top/realms/hogepeke/broker/google/login?client_id=flaskstab_id=avZAR_sDvTYsession_code=Q8jppCmvfAQbcU1TlkTl6UTuR7eM0NGbK_JQyRvjnBs</loc>
+  <loc>https://douzo.top/realms/hogepeke/broker/google/login?client_id=flaskstab_id=fJ-opbzytTssession_code=i1TE54kd3Rbaq7CTK2clOJhLuTiuXD0lGRidIJVGBeA</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://udemy-flask-sample.top/realms/hogepeke/broker/github/login?client_id=flaskstab_id=avZAR_sDvTYsession_code=Q8jppCmvfAQbcU1TlkTl6UTuR7eM0NGbK_JQyRvjnBs</loc>
+  <loc>https://douzo.top/realms/hogepeke/broker/github/login?client_id=flaskstab_id=fJ-opbzytTssession_code=i1TE54kd3Rbaq7CTK2clOJhLuTiuXD0lGRidIJVGBeA</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://udemy-flask-sample.top/realms/hogepeke/login-actions/registration?client_id=flaskstab_id=avZAR_sDvTY</loc>
+  <loc>https://douzo.top/realms/hogepeke/login-actions/registration?client_id=flaskstab_id=fJ-opbzytTs</loc>
   <priority>0.8</priority>
 </url>
 
