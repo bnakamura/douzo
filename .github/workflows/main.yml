@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches:
+      # 開発中はmainではなくsampleにしておく
+      - sample      
+      #- main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 160.251.139.45
+          username: root
+          port: 22
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            export DOMAIN=douzo.top
+            export API_DOMAIN=bpi.douzo.top
+            export KEY_DOMAIN=auth.douzo.top
+            export MAIL=bnakamur@hotmail.com
+
+            # 環境
+            export ENV=PROD
+
+            # mysqlの設定
+            export ROOT=hogehoge
+            export DB=hoge
+            export DB_USER=hogehoge
+            export DB_PASS=hogehoge
+
+            # セッションデータを保存するために必要
+            export SECRET_KEY=hogepeke
+
+            # CSRF対策
+            export CSRF_SECRET=pekehoge
+
+            # keycloak 
+            export KEYCLOAK_DB=keycloaks
+            export KEYCLOAK_DB_USER=keycloak
+            export KEYCLOAK_DB_PASS=hogepeke
+            export KEYCLOAK_ADMIN_PASSWORD=hogepeke
+
+            # oauth2proxy
+            export COOKIE_SEC=0123456789012345678a901234567891
+
+            # keycloak 発行後
+            export CLIENT_ID=flasks
+            export CLIENT_SECRET=FTGlrDWUCvLdmnq44X9yMAewe7jBj2y7
+
+            # gmail
+            export MAIL_USERNAME=binnnakamura@gmail.com
+
+            #アプリパスワード
+            export MAIL_PASSWORD=ebayumonjsmmpght
+            #export MAIL_PASSWORD=nakamurabin
+
+            # JWTデコードするためのキー
+            export JWT_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhWcxlmluBu8ZMcafoc2bogOoEXGtsFMax362C3Vkt5F5JCLOJkvUD24vd+1kLpNeI+0pGBuNj7RLK4po3MwdtUc15EJNzJhDFkzDKW6PCj00YWRVkmnLQuCuqP8fvcYNkxXA0J1MdtXkGlujIycwV0v6bI/xpV3iBHBmHHsbD7iUOWZtlt34JFJvDA39coMGZzUEYpqvZZi2jS+wCQIO44plpezwfZSQ97F6lzr4wJ8fFiJK9/w1d68uSe5H/XOTk1r7CskYk7boJeTlJYSVa4BQMBPcXUQHLcHCNffU8swySsEswcWdwjwD6+O+IYHohaNNNDvwBKfDZBAvyDHuUwIDAQAB
+
+            # コマンド実行
+            cd douzo/ && git pull && docker-compose build && docker-compose up -d
+
+            # apiがエラーで実装できていないためコメントアウト
+            #docker exec douzo_app_api_1 /bin/bush -c 'pytest -s tests/test_hoge.py'
