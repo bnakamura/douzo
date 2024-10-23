@@ -15,7 +15,8 @@ def test_dbs(app):
     
     app.config['TESTING'] = True
     # getの場合
-    response = app.test_client().get('/api/v1/dbs', headers={'X-Access-Token': token})
+    # response = app.test_client().get('/api/v1/dbs', headers={'X-Access-Token': token})
+    response = app.test_client().get('/api/v1/dbs', headers={'X-Access-Token': $TOKEN})
     # postの場合
     # app.test_client().post('/dashboard', 
     # data=dict(hoge='1111', peke='2222'),
