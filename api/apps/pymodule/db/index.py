@@ -53,7 +53,7 @@ class index(Resource):
                 # marshalを使うと、return時に値をラッピングしてくれる
                 money = MONEY( 
                         #system_id = get_jwt()
-                        system_id = '9d9d33e0-bb8f-4724-99d9-807cf8b91cdb'
+                        system_id = '3b07be22-fa23-450f-bd73-79439922b1bb'
                 )
                 print(money.system_id)
                 return money.get_data()
